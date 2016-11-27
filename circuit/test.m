@@ -1,7 +1,10 @@
 syms t;
-uc(t)=2*exp(-t) - exp(-2*t);
-i(t)=exp(-t) - exp(-2*t);
-ul(t)=2*exp(-2*t) - exp(-t);
+% uc(t)=2*exp(-t) - exp(-2*t);
+% i(t)=exp(-t) - exp(-2*t);
+% ul(t)=2*exp(-2*t) - exp(-t);
+uc(t)=(1+t)*exp(-t);
+i(t)=t*exp(-t);
+ul(t)=(1-t)*exp(-t);
 figure;
 hold on;
 grid on;

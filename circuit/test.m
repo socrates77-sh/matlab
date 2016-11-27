@@ -1,0 +1,14 @@
+syms t;
+uc(t)=2*exp(-t) - exp(-2*t);
+i(t)=exp(-t) - exp(-2*t);
+ul(t)=2*exp(-2*t) - exp(-t);
+figure;
+hold on;
+grid on;
+h1=ezplot(uc); 
+set(h1,'color','r');
+h2=ezplot(i); 
+set(h2,'color','b');
+h3=ezplot(ul); 
+set(h3,'color','g');
+axis([0,5,-0.3,1.1]);

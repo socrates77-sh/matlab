@@ -1,17 +1,20 @@
 syms t;
-% uc(t)=2*exp(-t) - exp(-2*t);
-% i(t)=exp(-t) - exp(-2*t);
-% ul(t)=2*exp(-2*t) - exp(-t);
-uc(t)=(1+t)*exp(-t);
-i(t)=t*exp(-t);
-ul(t)=(1-t)*exp(-t);
-figure;
-hold on;
+C = 1e-6;
+R = 4e3;
+L = 1;
+U0 = 10;
+
+p1 = -R/(2*L) + sqrt((R/(2*L))^2 - 1/(L*C));
+p2 = -R/(2*L) - sqrt((R/(2*L))^2 - 1/(L*C));
+
+uc = U0/(p2-p1) * (p2*exp(p1*t)-p1*exp(p2*t));
+i = -U0/(L*(p2-p1)) * (exp(p1*t)-exp(p2*t));
+ul = -U0/(p2-p1) * (p1*exp(p1*t)-p2*exp(p2*t));
+
+figure(1);
+title('ex7\_1');
+% subplot(2,1,2);
+fplot(uc);
 grid on;
-h1=ezplot(uc); 
-set(h1,'color','r');
-h2=ezplot(i); 
-set(h2,'color','b');
-h3=ezplot(ul); 
-set(h3,'color','g');
-axis([0,5,-0.3,1.1]);
+xlabel('t');
+% legend('i');

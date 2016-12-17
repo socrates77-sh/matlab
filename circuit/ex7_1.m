@@ -12,13 +12,22 @@ uc = U0/(p2-p1) * (p2*exp(p1*t)-p1*exp(p2*t));
 i = -U0/(L*(p2-p1)) * (exp(p1*t)-exp(p2*t));
 ul = -U0/(p2-p1) * (p1*exp(p1*t)-p2*exp(p2*t));
 
+figure(1);
+title('ex7\_1');
 subplot(2,1,2);
 plot(t,i,'b');
 grid on;
+xlabel('t');
+legend('i');
 
 subplot(2,1,1);
 hold on;
 plot(t,uc,'r'); 
 plot(t,ul,'g');
 grid on;
+xlabel('t');
+legend('uc', 'ul');
+
+
+
 

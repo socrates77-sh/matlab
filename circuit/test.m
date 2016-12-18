@@ -1,20 +1,11 @@
-syms t;
+G = 2e-3;
 C = 1e-6;
-R = 4e3;
 L = 1;
-U0 = 10;
+Is = 1;
 
-p1 = -R/(2*L) + sqrt((R/(2*L))^2 - 1/(L*C));
-p2 = -R/(2*L) - sqrt((R/(2*L))^2 - 1/(L*C));
-
-uc = U0/(p2-p1) * (p2*exp(p1*t)-p1*exp(p2*t));
-i = -U0/(L*(p2-p1)) * (exp(p1*t)-exp(p2*t));
-ul = -U0/(p2-p1) * (p1*exp(p1*t)-p2*exp(p2*t));
-
-figure(1);
-title('ex7\_1');
-% subplot(2,1,2);
-fplot(uc);
-grid on;
-xlabel('t');
-% legend('i');
+syms il(t);
+D2il = diff(il, 2);
+Dil = diff(il);
+il_s = dsolve(L*C*D2il+G*L*Dil+il==Is, il(0)==0, Dil(0)==0)
+uc = L*diff(il_s)
+ic = C*diff(uc)

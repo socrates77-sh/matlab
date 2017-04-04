@@ -1,3 +1,5 @@
-x=sin(2*pi*t);
-y=fft(x); 
-plot(abs(y)); 
+
+syms x
+fx=x^2+x+5
+f=char(fx)
+
